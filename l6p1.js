@@ -52,10 +52,20 @@
     // printName("Ramesh", 23);
 
 
-    function sum(a,b){
-        console.log(a+b);
-    }
-    sum (1,2);
-    sum (4,5);
-    sum (7,8);
+    // function sum(a,b) {
+    //     console.log(a+b);
+    // }
+    // function calcAvg(a,b,c) {
+    //     let avg = (a+b+c)/3;
+    //     console.log(avg);
+    // }
+    // function printTable(n){
+    //     for (let i=n; i<=n*10; i+=n) {
+    //         console.log(i);
+    //     }
+    // }
+    // printTable(5)
 
+
+               // Return
+               
