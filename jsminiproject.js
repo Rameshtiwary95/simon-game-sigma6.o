@@ -46,7 +46,7 @@ btn.addEventListener("click", function () {
 });
 
 ul.addEventListener("click", function(event){
-    console.log(event.target);
+    console.dir(event.target);
     console.log("button clicked");
 });
 
