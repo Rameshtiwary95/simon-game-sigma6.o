@@ -46,8 +46,11 @@ btn.addEventListener("click", function () {
 });
 
 ul.addEventListener("click", function(event){
-    console.dir(event.target);
-    console.log("button clicked");
+if (event.target.nodeName == "BUTTON"){
+   let listItem = event.target.parentElement;
+   listItem.remove();
+   console.log("deleted");
+}
 });
 
 
