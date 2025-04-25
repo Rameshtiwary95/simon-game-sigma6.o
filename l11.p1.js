@@ -18,8 +18,56 @@
 // console.log(b);
 // console.log(a + b);
 
-setTimeout(() =>{
-    console.log("apna college");  
-},2000);
+ // synchronous nature
 
-console.log("hello")
+// setTimeout(() =>{
+//     console.log("apna college");  
+// },2000);
+
+// console.log("hello")
+
+// h1 = document.querySelector("h1");
+
+// setTimeout(() =>{
+//     h1.style.color = "red";  
+//     },1000);
+
+//  setTimeout(() =>{
+//     h1.style.color = "orange";  
+//      },2000);
+
+// setTimeout(() =>{
+//     h1.style.color = "green";  
+//      },3000);
+
+//  setTimeout(() =>{
+//     h1.style.color = "orange";  
+//      },4000);
+    
+
+h1 = document.querySelector("h1");
+
+function changeColor(color, delay, nextColorChange) {
+    setTimeout(() => {
+    h1.style.color = color;
+    if(nextColorChange) nextColorChange();
+    },delay);
+}
+
+changeColor("red", 1000, () => {
+    changeColor("orange", 1000, () => {
+        changeColor("green",1000, () => {
+         changeColor("yellow",1000, () => {
+            changeColor("blue",1000, () => {
+
+            });
+         })   
+        });
+    });
+});
+
+
+
+
+
+
