@@ -45,29 +45,70 @@
 //      },4000);
     
 
-h1 = document.querySelector("h1");
+// h1 = document.querySelector("h1");
 
-function changeColor(color, delay, nextColorChange) {
-    setTimeout(() => {
-    h1.style.color = color;
-    if(nextColorChange) nextColorChange();
-    },delay);
+// function changeColor(color, delay, nextColorChange) {
+//     setTimeout(() => {
+//     h1.style.color = color;
+//     if(nextColorChange) nextColorChange();
+//     },delay);
+// }
+
+// changeColor("red", 1000, () => {
+//     changeColor("orange", 1000, () => {
+//         changeColor("green",1000, () => {
+//          changeColor("yellow",1000, () => {
+//             changeColor("blue",1000, () => {
+
+//             });
+//          })   
+//         });
+//     });
+// });
+
+
+// callbacks nesting callback hell
+
+function  savetoDb(data ,success, failure) {
+    let internetSpeed = Math.floor(Math.random() *10) + 1;
+    if (internetSpeed > 4) {
+        success();
+    }else {
+        failure();
+    }
 }
 
-changeColor("red", 1000, () => {
-    changeColor("orange", 1000, () => {
-        changeColor("green",1000, () => {
-         changeColor("yellow",1000, () => {
-            changeColor("blue",1000, () => {
+savetoDb(
+    "apna college",
+    () =>{
+        console.log("sucess: your data was saved");
+        savetoDb(
+            "hello world",
+            () => {
+                console.log("success2: data2 saved");
+                savetoDb("Ramesh",
+                     ()=> {
+                    console,log("sucess3: data3 saved");
+                },
+                ()=>{
+                console.log ("failure3: weak connection. data not saved");     
+                }
+            );
+            },
+            ()=>{
+                console.log ("failure2: weak connection. data not saved");   
+            }
+        );
+    }, 
+    ()=> {
+        console.log("failure : weak connection. data not saved");
+    }  
+)      
+            
+            
 
-            });
-         })   
-        });
-    });
-});
+        
+    
 
 
-
-
-
-
+       
