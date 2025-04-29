@@ -152,28 +152,57 @@
 // });
 
 
-function  savetoDb(data) {
-    return new Promise((resolve , reject) => {
-    let internetSpeed = Math.floor(Math.random() *10) + 1;
-    if (internetSpeed > 4) {
-        resolve("success : data was saved");
-    }else {
-        reject("failure : weak connection");
+// function  savetoDb(data) {
+//     return new Promise((resolve , reject) => {
+//     let internetSpeed = Math.floor(Math.random() *10) + 1;
+//     if (internetSpeed > 4) {
+//         resolve("success : data was saved");
+//     }else {
+//         reject("failure : weak connection");
+//     }
+//     });
+// }
+// savetoDb("apna college")
+// .then ((result) => {
+//     console.log("data1 saved");
+//     console.log(result);
+//      return savetoDb("helloworld");
+//     })
+// .then((result) => {
+//     console.log("data2 saved");
+//     console.log(result);
+//     return savetoDb("Ramesh");
+// })
+// .then((result) =>{
+//    console.log("data3 saved");
+//    console.log(result);
+// })
+// .catch((error) =>{
+//     console.log("promice was rejected");
+//     console.log("error of proise :",error);
+
+// });
+
+
+h1 = document.querySelector("h1");
+
+function changeColor(color, delay) {
+    new Promise((resolve,reject) => {
+        setTimeout(() => {
+            h1.style.color = color;
+            resolve("color changed!");
+               },delay);
+        });
     }
-    });
-}
-savetoDb("apna college")
-.then (() => {
-    console.log("data1 saved");
-     return savetoDb("helloworld");
-    })
-.then(() => {
-    console.log("data2 saved");
-    return savetoDb("Ramesh");
-})
-.then(() =>{
-   console.log("data3 saved");
-})
-.catch(() =>{
-    console.log("promice was rejected");
-});
+
+// changeColor("red", 1000, () => {
+//     changeColor("orange", 1000, () => {
+//         changeColor("green",1000, () => {
+//          changeColor("yellow",1000, () => {
+//             changeColor("blue",1000); 
+
+//             });
+//          })   
+//         });
+//     });
+
