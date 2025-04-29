@@ -119,7 +119,7 @@ request
 .then (() => {
     console.log("promice was resolved");
     console.log (request);
-});
+})
 .catch(() => {
     console.log ("promice was rejected");
     console.log (request);
