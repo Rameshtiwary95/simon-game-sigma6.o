@@ -104,6 +104,54 @@
 //         console.log("failure : weak connection. data not saved");
 //     }  
 // )      
+// function  savetoDb(data) {
+//     return new Promise((resolve , reject) => {
+//     let internetSpeed = Math.floor(Math.random() *10) + 1;
+//     if (internetSpeed > 4) {
+//         resolve("success : data was saved");
+//     }else {
+//         reject("failure : weak connection");
+//     }
+//     });
+// }
+// // let request = savetoDb("apna college"); //rej- promice object
+// // request
+// savetoDb("apna college")
+// .then (() => {
+//     console.log("promice was resolved");
+//     // console.log (request);
+// })
+// .catch(() => {
+//     console.log ("promice was rejected");
+//     // console.log (request);
+
+// });
+
+
+
+// function  savetoDb(data) {
+//     return new Promise((resolve , reject) => {
+//     let internetSpeed = Math.floor(Math.random() *10) + 1;
+//     if (internetSpeed > 4) {
+//         resolve("success : data was saved");
+//     }else {
+//         reject("failure : weak connection");
+//     }
+//     });
+// }
+// savetoDb("apna college")
+// .then (() => {
+//     console.log("data1 saved");
+//      return savetoDb("helloworld")
+//     })
+// .then(() => {
+//     console.log("data2 saved");
+// })
+// .catch(() =>{
+//     console.log("promice was rejected");
+// });
+
+
 function  savetoDb(data) {
     return new Promise((resolve , reject) => {
     let internetSpeed = Math.floor(Math.random() *10) + 1;
@@ -114,14 +162,18 @@ function  savetoDb(data) {
     }
     });
 }
-let request = savetoDb("apna college"); //rej- promice object
-request
+savetoDb("apna college")
 .then (() => {
-    console.log("promice was resolved");
-    console.log (request);
+    console.log("data1 saved");
+     return savetoDb("helloworld");
+    })
+.then(() => {
+    console.log("data2 saved");
+    return savetoDb("Ramesh");
 })
-.catch(() => {
-    console.log ("promice was rejected");
-    console.log (request);
-
+.then(() =>{
+   console.log("data3 saved");
+})
+.catch(() =>{
+    console.log("promice was rejected");
 });
