@@ -69,46 +69,59 @@
 
 // callbacks nesting callback hell
 
-function  savetoDb(data ,success, failure) {
+// function  savetoDb(data ,success, failure) {
+//     let internetSpeed = Math.floor(Math.random() *10) + 1;
+//     if (internetSpeed > 4) {
+//         success();
+//     }else {
+//         failure();
+//     }
+// }
+
+// savetoDb(
+//     "apna college",
+//     () =>{
+//         console.log("sucess: your data was saved");
+//         savetoDb(
+//             "hello world",
+//             () => {
+//                 console.log("success2: data2 saved");
+//                 savetoDb("Ramesh",
+//                      ()=> {
+//                     console,log("sucess3: data3 saved");
+//                 },
+//                 ()=>{
+//                 console.log ("failure3: weak connection. data not saved");     
+//                 }
+//             );
+//             },
+//             ()=>{
+//                 console.log ("failure2: weak connection. data not saved");   
+//             }
+//         );
+//     }, 
+//     ()=> {
+//         console.log("failure : weak connection. data not saved");
+//     }  
+// )      
+function  savetoDb(data) {
+    return new Promise((resolve , reject) => {
     let internetSpeed = Math.floor(Math.random() *10) + 1;
     if (internetSpeed > 4) {
-        success();
+        resolve("success : data was saved");
     }else {
-        failure();
+        reject("failure : weak connection");
     }
+    });
 }
+let request = savetoDb("apna college"); //rej- promice object
+request
+.then (() => {
+    console.log("promice was resolved");
+    console.log (request);
+});
+.catch(() => {
+    console.log ("promice was rejected");
+    console.log (request);
 
-savetoDb(
-    "apna college",
-    () =>{
-        console.log("sucess: your data was saved");
-        savetoDb(
-            "hello world",
-            () => {
-                console.log("success2: data2 saved");
-                savetoDb("Ramesh",
-                     ()=> {
-                    console,log("sucess3: data3 saved");
-                },
-                ()=>{
-                console.log ("failure3: weak connection. data not saved");     
-                }
-            );
-            },
-            ()=>{
-                console.log ("failure2: weak connection. data not saved");   
-            }
-        );
-    }, 
-    ()=> {
-        console.log("failure : weak connection. data not saved");
-    }  
-)      
-            
-            
-
-        
-    
-
-
-       
+});
